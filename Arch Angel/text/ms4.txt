@@ -1,0 +1,28 @@
+<1>+50000+70000+11
+<2>+600+60+4+500
+N-AZ
+<3>+3000+250+3+8000
+BL 102
+<4>
+EndingMent
+<10>
+Mission 4
+<11>
+The enemy is
+concentrating its
+troops around Castor 
+<12>
+in Pollux. Destroy 
+11 of their N-AZ units
+and then follow the
+<13>
+navigator for 120km to
+the Arcturus mountains 
+north-east of Castor
+<14>
+where you will face a
+so far unidentified
+combat unit. 
+<15>
+Identify and 
+destroy it!

@@ -1,0 +1,29 @@
+<1>+20000+40000+5
+<2>+100+30+1+200
+AZ-1
+<3>+1200+100+0+1000
+AL 101A
+<4>
+EndingMent
+<10>
+Mission 1
+<11>
+In Dark Eden an area in
+the Nekkar desert, the
+enemy has concentrated 
+<12>
+its troops to prepare 
+for war. You will face
+a group of 10 AZ-1
+<13>
+combat units, which you
+need to destroy. Then,
+follow the directions
+<14>
+of your navigator for
+60 km, which will leads
+you directly to their
+<15>
+newly developed AL-101
+air fighter...
+Destroy it!

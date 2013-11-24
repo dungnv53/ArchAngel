@@ -1,0 +1,37 @@
+<1>+60000+80000+13
+<2>+1200+100+5+1000
+AL 101A
+<3>+4000+300+4+15000
+BL 102EX
+<4>
+EndingMent
+<10>
+Mission 5
+<11>
+The unidentified air
+unit you faced in 
+your last mission was
+<12>
+a prototype called
+BL-102, the successor
+of the AL-101.
+<13>
+Important supply
+lines towards the
+Maaz mountain 
+<14>
+south-east of
+Arcturus indicate
+that the production 
+<15>
+line for the BL-102
+is there.
+Destroy the 13 AL-101
+<16>
+A-Type units and then
+follow the navigator
+for 140km and destroy
+<17>
+the BL-102 unit which
+will be waiting for
+you!

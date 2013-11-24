@@ -1,0 +1,58 @@
+<1>+10+20+30+40+50+999+70
+1.Save Game
+2.Load Game
+3.Sound 
+4.Plasma Canon
+5.Information
+6.Quit
+
+<2>+10+20+34+50+999+0
+1.New Game
+2.Continue
+3.Settings
+4.Information
+6.Quit
+
+<10>+11+1
+Do you want to
+save this game?
+
+1.Yes
+2.No
+<12>+1
+Saving complete.
+
+<20>+21+1
+Do you want to
+load the game?
+
+1.Yes
+2.No
+<22>+1
+Loading complete.
+
+<23>+1
+There is no saved
+game.
+
+<31>+33+1
+Sound Control
+
+1.Sound off
+
+<32>+33+1
+Sound Control
+
+1.Sound on
+<34>+30+1
+1. Sound Controls
+
+<41>+43+1
+Plasma Canon
+
+1.Manual
+<42>+43+1
+Plasma Canon
+
+1.Automatic
+

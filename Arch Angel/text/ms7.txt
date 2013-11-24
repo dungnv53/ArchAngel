@@ -1,0 +1,24 @@
+<1>+80000+100000+17
+<2>+2400+200+7+4000
+AL 101EX
+<3>+7000+400+6+50000
+YFC-2
+<4>
+EndingMent
+<10>
+Mission 7
+<11>
+The remaining troops
+have fled south-east
+of Procyon. Destroy
+<12>
+the 17 remaining
+AL-101 units and then 
+follow the navigator
+<13>
+180km to a new area
+where we have seen
+some YFC-2 units, 
+<14>
+which are successor
+units of the FC-12.
