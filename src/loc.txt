@@ -1,0 +1,10 @@
+      18 test.java
+      22 g.java
+     138 h.java
+     144 c.java
+     176 e.java
+     214 ArchAngle.java
+     300 d.java
+    1697 f.java
+    2921 b.java
+    5630 total
