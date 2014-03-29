@@ -5,6 +5,7 @@ import javax.microedition.lcdui.Image;
 public class d
 {
   public Image[] a = new Image[120];
+  // 120 item ?
   public Image b = null;
   public InputStream c;
   public int[] d = null;
@@ -36,7 +37,8 @@ public class d
 
   public d()
   {
-    a("font");
+    a("font"); // a(String , int, Graphic, int, int);
+    // 
     a(0, 0);
     a(1, 1);
     for (int i = 3; i < 6; ++i)

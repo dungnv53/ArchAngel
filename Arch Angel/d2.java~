@@ -179,49 +179,49 @@ public class d
     System.gc();
   }
 
-  public void a(String paramString)
+  public void a(string paramstring)
   {
-    paramString = "/msr/" + paramString + ".msr";
-    this.f = paramString;
+    paramstring = "/msr/" + paramstring + ".msr";
+    this.f = paramstring;
     try
     {
-      this.c = super.getClass().getResourceAsStream(paramString);
+      this.c = super.getclass().getresourceasstream(paramstring);
       int i = c() + 1;
       this.d = new int[i];
       for (int j = 0; j < i; ++j)
         this.d[j] = c();
     }
-    catch (Exception localException)
+    catch (exception localexception)
     {
     }
     this.e = this.d[0];
-    System.gc();
+    system.gc();
   }
 }
 /*
  * public class d
  *   public Image[] a = new Image[120];
- *     public Image b = null;
- *       public InputStream c;
+ *   public Image b = null;
+ *   public InputStream c;
  *   public int[] d = null;
  *   public int e = 0;
  *   public String f;
  *   public void a(int paramInt)
  *   public void a(Graphics paramGraphics)
- *    public void a()
- *    public void a(Graphics paramGraphics, int paramInt1, int paramInt2, int paramInt3)
- *        public d()
- * public void b()
- *  public void b(Graphics paramGraphics, int paramInt1, int paramInt2, int paramInt3)
- *    public void a(Graphics paramGraphics, int paramInt1, int paramInt2, String paramString, int paramInt3)
- * public void a(Graphics paramGraphics, int paramInt1, int paramInt2, String paramString)
- *     public void a(Graphics paramGraphics, int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5, int paramInt6)
- *       public void a(int paramInt1, int paramInt2)
- *     public Image b(int paramInt)
- *          public void c(Graphics paramGraphics, int paramInt1, int paramInt2, int paramInt3)
- *              public int c()
+ *   public void a()
+ *   public void a(Graphics paramGraphics, int paramInt1, int paramInt2, int paramInt3)
+ *   public d()
+ *   public void b()
+ *   public void b(Graphics paramGraphics, int paramInt1, int paramInt2, int paramInt3)
+ *   public void a(Graphics paramGraphics, int paramInt1, int paramInt2, String paramString, int paramInt3)
+ *   public void a(Graphics paramGraphics, int paramInt1, int paramInt2, String paramString)
+ *   public void a(Graphics paramGraphics, int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5, int paramInt6)
+ *   public void a(int paramInt1, int paramInt2)
+ *   public Image b(int paramInt)
+ *   public void c(Graphics paramGraphics, int paramInt1, int paramInt2, int paramInt3)
+ *   public int c()
  *   public void a(String paramString, int paramInt1, Graphics paramGraphics, int paramInt2, int paramInt3)
- *           public void a(int paramInt1, Graphics paramGraphics, int paramInt2, int paramInt3)
- *          public void d()
- *             public void a(String paramString)
+ *   public void a(int paramInt1, Graphics paramGraphics, int paramInt2, int paramInt3)
+ *   public void d()
+ *   public void a(String paramString)
  */
