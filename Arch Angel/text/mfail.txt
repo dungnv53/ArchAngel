@@ -1,0 +1,6 @@
+<1>+2+999
+You have been 
+hit deadly.
+
+1. Retry
+2. Back

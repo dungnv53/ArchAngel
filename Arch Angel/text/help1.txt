@@ -1,0 +1,33 @@
+<200>+201
+Briefing:Here you
+will be briefed 
+about the mission
+objective.
+<201>+202
+Start:The mission
+will start with
+this option.
+<202>+203
+Machine shop:You 
+can upgrade your
+machine gun,plasma
+cannon and armor
+in the machine
+shop.The machine
+gun is used
+<203>+204
+in shuttle mode
+(air fighter) and
+the plasma cannon
+in robot mode. 
+<204>+205
+Specs:Here you
+can check the
+current status of
+Arch Angel.
+<205>+50
+System:Here you 
+can save and load
+games,change 
+settings and enter
+the help section.

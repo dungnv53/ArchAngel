@@ -1,0 +1,40 @@
+<1>+90000+110000+19
+<2>+3000+250+8+8000
+BL 102
+<3>+10000+500+7+0
+ARCHANGEL MK2
+<4>
+EndingMent
+<10>
+Mission 8
+<11>
+Bad News: The main
+force with BL-102s
+is coming for the 
+<12>
+final strike. Leave
+now and destroy 19
+units. Then follow
+<13>
+your navigator for
+200km in order to...
+Damn! What is this?!
+<14>
+It seems that you
+will then face an
+Arch Angel MK2 unit, 
+<15>
+which was developed 
+in a top secret
+operation. Dealers
+<16>
+seem to have sold the
+construction plans to 
+the enemy. This will
+<17>
+be the mightiest unit
+you have ever faced..
+Our fate lies in your
+<18>
+hands!
+

@@ -1,0 +1,25 @@
+<1>+30000+50000+7
+<2>+100+30+1+200
+AZ-1
+<3>+1500+150+0+2000
+AL 101B
+<4>
+EndingMent
+<10>
+Mission 2
+<11>
+The remaining enemy
+troops are hiding
+in the Bellatrix
+<12>
+mountains, north-east
+of Dark Eden.
+Destroy 7 of their 
+<13>
+AZ-1 units and then 
+follow the navigator
+for 80km and destroy
+<14>
+their upgraded AL-101
+unit!
+Good luck!

@@ -1,0 +1,35 @@
+<100>+101
+The radar is
+situated in the
+upper left corner
+of the monitor.
+Enemies are marked 
+as yellow points,
+their missiles are
+<101>+102
+marked red.Your 
+energy bar is 
+displayed on the
+upper right corner. 
+If your energy 
+drops to zero,
+Arch Angel will be
+<102>+103
+self-destructed.
+Also your
+ammunition bar is
+displayed on the
+upper right corner.
+If this bar is at
+zero,you have to
+<103>+104
+reload your MG.
+The number on the
+top of the monitor
+shows the distance
+to the target area.
+The direction 
+marker indicates
+<104>+50
+the direction.
+

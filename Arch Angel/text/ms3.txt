@@ -1,0 +1,28 @@
+<1>+40000+60000+9
+<2>+300+40+3+300
+AZ-2
+<3>+2400+200+2+4000
+AL 101EX
+<4>
+EndingMent
+<10>
+Mission 3
+<11>
+On satellite photos
+we have discovered
+an enemy production 
+<12>
+plant north-east of
+your position. Destroy
+9 AZ-2 units which 
+<13>
+are guarding the plant
+to prepare everything
+for a massive air 
+<14>
+strike. Then follow 
+the navigator for 
+100km and destroy 
+<15>
+the AL-101 master
+unit!

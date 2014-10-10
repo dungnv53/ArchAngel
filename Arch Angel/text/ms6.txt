@@ -1,0 +1,36 @@
+<1>+70000+90000+15
+<2>+1500+150+6+2000
+AL 101B
+<3>+5400+350+5+30000
+FC-12
+<4>
+EndingMent
+<10>
+Mission 6
+<11>
+Now you will enter
+your first sea mission.
+Enemy troops have 
+<12>
+gathered in Procyon,
+an island in the
+Arneb sea. 
+<13>
+Destroy 15 of the 
+AL-101 B-Type units 
+and then follow the 
+<14>
+navigator for 160km in 
+a low-level flight 
+below 100m.
+<15>
+There are many cliffs
+and rocks in the sea, 
+so be careful. 
+<16>
+On this mission you
+will face FC-12 air
+units.
+<17>
+Engage them in combat
+and bring them down!
