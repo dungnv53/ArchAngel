@@ -3,7 +3,7 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 
-	<com.example.android.jetboy.JetBoyView android:id="@+id/JetBoyView"
+	<com.littlewing.archangle.app.JetBoyView android:id="@+id/JetBoyView"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent" />
 
