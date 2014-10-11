@@ -364,14 +364,14 @@ public class JetBoyView extends SurfaceView implements SurfaceHolder.Callback {
 
             setInitialGameState();
 
-            mTitleBG = BitmapFactory.decodeResource(mRes, android.R.drawable.title_hori);
+            mTitleBG = BitmapFactory.decodeResource(mRes, R.drawable.title_hori);
 
             // load background image as a Bitmap instead of a Drawable b/c
             // we don't need to transform it and it's faster to draw this
             // way...thanks lunar lander :)
 
             // two background since we want them moving at different speeds
-            mBackgroundImageFar = BitmapFactory.decodeResource(mRes, android.R.drawable.background_a);
+            mBackgroundImageFar = BitmapFactory.decodeResource(mRes, R.drawable.background_a);
 
             mLaserShot = BitmapFactory.decodeResource(mRes, R.drawable.laser);
 
