@@ -391,7 +391,7 @@ public class JetBoyView extends SurfaceView implements SurfaceHolder.Callback {
 
             // I wanted them to rotate in a certain way
             // so I loaded them backwards from the way created.
-            mAsteroids[11] = BitmapFactory.decodeResource(mRes, R.drawable.asteroid01);
+            mAsteroids[11] = BitmapFactory.decodeResource(mRes, R.drawable.boss1_08);
             mAsteroids[10] = BitmapFactory.decodeResource(mRes, R.drawable.asteroid02);
             mAsteroids[9] = BitmapFactory.decodeResource(mRes, R.drawable.asteroid03);
             mAsteroids[8] = BitmapFactory.decodeResource(mRes, R.drawable.asteroid04);
