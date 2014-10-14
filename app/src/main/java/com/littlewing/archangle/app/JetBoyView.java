@@ -371,34 +371,34 @@ public class JetBoyView extends SurfaceView implements SurfaceHolder.Callback {
             // way...thanks lunar lander :)
 
             // two background since we want them moving at different speeds
-            mBackgroundImageFar = BitmapFactory.decodeResource(mRes, R.drawable.background_a);
+            mBackgroundImageFar = BitmapFactory.decodeResource(mRes, R.drawable.background2_10); // bg_a
 
             mLaserShot = BitmapFactory.decodeResource(mRes, R.drawable.laser);
 
-            mBackgroundImageNear = BitmapFactory.decodeResource(mRes, R.drawable.background_b);
+            mBackgroundImageNear = BitmapFactory.decodeResource(mRes, R.drawable.background2_09); // bg_b
 
-            mShipFlying[0] = BitmapFactory.decodeResource(mRes, R.drawable.ship2_1);
-            mShipFlying[1] = BitmapFactory.decodeResource(mRes, R.drawable.ship2_2);
-            mShipFlying[2] = BitmapFactory.decodeResource(mRes, R.drawable.ship2_3);
-            mShipFlying[3] = BitmapFactory.decodeResource(mRes, R.drawable.ship2_4);
+            mShipFlying[0] = BitmapFactory.decodeResource(mRes, R.drawable.aa_00); // ship2_1
+            mShipFlying[1] = BitmapFactory.decodeResource(mRes, R.drawable.aa_01);
+            mShipFlying[2] = BitmapFactory.decodeResource(mRes, R.drawable.aa_02);
+            mShipFlying[3] = BitmapFactory.decodeResource(mRes, R.drawable.aa_03);
 
-            mBeam[0] = BitmapFactory.decodeResource(mRes, R.drawable.intbeam_1);
-            mBeam[1] = BitmapFactory.decodeResource(mRes, R.drawable.intbeam_2);
-            mBeam[2] = BitmapFactory.decodeResource(mRes, R.drawable.intbeam_3);
-            mBeam[3] = BitmapFactory.decodeResource(mRes, R.drawable.intbeam_4);
+            mBeam[0] = BitmapFactory.decodeResource(mRes, R.drawable.effect_10); //intbeam_1
+            mBeam[1] = BitmapFactory.decodeResource(mRes, R.drawable.effect_11);
+            mBeam[2] = BitmapFactory.decodeResource(mRes, R.drawable.effect_12);
+            mBeam[3] = BitmapFactory.decodeResource(mRes, R.drawable.effect_12);
 
             mTimerShell = BitmapFactory.decodeResource(mRes, R.drawable.int_timer);
 
             // I wanted them to rotate in a certain way
             // so I loaded them backwards from the way created.
-            mAsteroids[11] = BitmapFactory.decodeResource(mRes, R.drawable.boss1_08);
-            mAsteroids[10] = BitmapFactory.decodeResource(mRes, R.drawable.asteroid02);
-            mAsteroids[9] = BitmapFactory.decodeResource(mRes, R.drawable.asteroid03);
-            mAsteroids[8] = BitmapFactory.decodeResource(mRes, R.drawable.asteroid04);
-            mAsteroids[7] = BitmapFactory.decodeResource(mRes, R.drawable.asteroid05);
+            mAsteroids[11] = BitmapFactory.decodeResource(mRes, R.drawable.boss1_08); // ast01
+            mAsteroids[10] = BitmapFactory.decodeResource(mRes, R.drawable.boss3_08);
+            mAsteroids[9] = BitmapFactory.decodeResource(mRes, R.drawable.boss5_08);
+            mAsteroids[8] = BitmapFactory.decodeResource(mRes, R.drawable.boss18); // ast04
+            mAsteroids[7] = BitmapFactory.decodeResource(mRes, R.drawable.boss37);
             mAsteroids[6] = BitmapFactory.decodeResource(mRes, R.drawable.asteroid06);
-            mAsteroids[5] = BitmapFactory.decodeResource(mRes, R.drawable.asteroid07);
-            mAsteroids[4] = BitmapFactory.decodeResource(mRes, R.drawable.asteroid08);
+            mAsteroids[5] = BitmapFactory.decodeResource(mRes, R.drawable.boss26);
+            mAsteroids[4] = BitmapFactory.decodeResource(mRes, R.drawable.boss66); //ast08
             mAsteroids[3] = BitmapFactory.decodeResource(mRes, R.drawable.asteroid09);
             mAsteroids[2] = BitmapFactory.decodeResource(mRes, R.drawable.asteroid10);
             mAsteroids[1] = BitmapFactory.decodeResource(mRes, R.drawable.asteroid11);
