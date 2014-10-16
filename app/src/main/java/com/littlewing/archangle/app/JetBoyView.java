@@ -45,6 +45,8 @@ import java.util.TimerTask;
 import java.util.Vector;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
+import android.view.MotionEvent;
+
 public class JetBoyView extends SurfaceView implements SurfaceHolder.Callback {
 
     // the number of asteroids that must be destroyed
@@ -1167,7 +1169,25 @@ public class JetBoyView extends SurfaceView implements SurfaceHolder.Callback {
             }
         }
 
-        
+        public boolean onTouch(MotionEvent event) {
+            int x = (int)event.getX();
+            int y = (int)event.getY();
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_MOVE:
+                    mLaserOn = true;
+                    break;
+                case MotionEvent.ACTION_DOWN:
+                    break;
+                case MotionEvent.ACTION_UP:
+                    break;
+                case MotionEvent.ACTION_POINTER_DOWN:
+                    break;
+                case MotionEvent.ACTION_POINTER_UP:
+                    break;
+            }
+            return true;
+        }
+
         /**
          * Does the work of updating timer
          * 
