@@ -260,10 +260,14 @@ public class JetBoyView extends SurfaceView implements SurfaceHolder.Callback {
         private int mBGFarMoveX = 0;
         private int mBGNearMoveX = 0;
 
+        // screen width, height
+        private int mWidth = (int)getWidth();
+        private int mHeight = (int)getHeight();
+
         // how far up (close to top) jet boy can fly
-        private int mJetBoyYMin = 40;
-        private int mJetBoyX = 0;
-        private int mJetBoyY = 0;
+        private int mJetBoyYMin = mWidth/3*2; //40;
+        private int mJetBoyX = (int)mWidth/2; //0;
+        private int mJetBoyY = (int)mHeight/3*2; //0;
 
         // this is the pixel position of the laser beam guide.
         private int mAsteroidMoveLimitX = 110;
@@ -632,6 +636,8 @@ public class JetBoyView extends SurfaceView implements SurfaceHolder.Callback {
 
                         mInitialized = false;
                         Log.d(TAG, "------> STARTING JET PLAY");
+
+                        Log.d(TAG, "----> " + mJetBoyX + "<---------" + mJetBoyY);
                         mJet.play();
 
                         mJetPlaying = true;
