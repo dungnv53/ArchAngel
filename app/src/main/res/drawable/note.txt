@@ -1,0 +1,4 @@
+background_a.png 720x320
+
+title_bg_hori.png: PNG image data, 480 x 295, 8-bit/color RGBA, non-interlaced
+title_hori.png:    PNG image data, 480 x 295, 8-bit/color RGBA, non-interlaced
