@@ -793,7 +793,7 @@ public class JetBoyView extends SurfaceView implements SurfaceHolder.Callback {
 
             // If the laser has been on too long shut it down
             if (mLaserOn && System.currentTimeMillis() - mLaserFireTime > 400) {
-                mLaserOn = false;
+//                mLaserOn = false;  // tat laser
             }
 
             // trying to tune the laser hit timing
