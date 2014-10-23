@@ -7,6 +7,7 @@ import java.io.InputStream;
  */
 public class e
 {
+  // many flags
   public int a = 1;
   public int b = 0;
   public boolean c = false;
@@ -30,12 +31,14 @@ public class e
    */
   public boolean a(int paramInt)
   {
+    // This function change value of many flag.
+    // Flags use may be for screen switch game mode switch, bot or player status ...
     int i1 = 0;
     if (this.n != paramInt)
     {
-      if (this.c)
-        this.a = this.g;
-      else if (this.d)
+      if (this.c) // init false
+        this.a = this.g; // a=1, g=1 init.
+      else if (this.d) // init false
         this.a = this.h;
       else
         this.a = 1;
@@ -66,6 +69,7 @@ public class e
    */
   public int b(int paramInt)
   {
+    // This func seem to be contrel aircraft moving
     int i2 = 0;
     for (int i1 = paramInt; i1 < this.j; i1++)
       if ((this.l[i1] >= 48) && (this.l[i1] <= 57))
