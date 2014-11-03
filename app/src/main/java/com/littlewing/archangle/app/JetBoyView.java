@@ -537,7 +537,8 @@ public class JetBoyView extends SurfaceView implements SurfaceHolder.Callback {
 
             doAsteroidAnimation(canvas);
 
-            canvas.drawBitmap(mBeam[mShipIndex], 51 + 20, 0, null);
+            canvas.drawBitmap(mBeam[mShipIndex], mCanvasWidth/2 - 51, mCanvasHeight/2 + 320, null);  // y old code use m-num ?
+//            canvas.drawBitmap(mBeam[mShipIndex], 51 + 20, 0, null);
 
             mShipIndex++;
 
@@ -545,7 +546,8 @@ public class JetBoyView extends SurfaceView implements SurfaceHolder.Callback {
                 mShipIndex = 0;
 
             // draw the space ship in the same lane as the next asteroid
-            canvas.drawBitmap(mShipFlying[mShipIndex], mJetBoyX, mJetBoyY, null);
+//            canvas.drawBitmap(mShipFlying[mShipIndex], mJetBoyX, mJetBoyY, null);
+            canvas.drawBitmap(mShipFlying[0], mCanvasWidth/2 - 81, mCanvasHeight - 81, null);
 
             if (mLaserOn) {
                 canvas.drawBitmap(mLaserShot, mJetBoyX + mShipFlying[0].getWidth(), mJetBoyY
@@ -1094,14 +1096,14 @@ public class JetBoyView extends SurfaceView implements SurfaceHolder.Callback {
                 if (mState == STATE_PLAY) {
                     Resources res = mContext.getResources();
                     mBackgroundImageFar = BitmapFactory
-                            .decodeResource(res, R.drawable.background_a);
+                            .decodeResource(res, R.drawable.background2_10); //background_a
 
                     // don't forget to resize the background image
                     mBackgroundImageFar = Bitmap.createScaledBitmap(mBackgroundImageFar,
                             mCanvasWidth * 2, mCanvasHeight, true);
 
                     mBackgroundImageNear = BitmapFactory.decodeResource(res,
-                            R.drawable.background_b);
+                            R.drawable.background2_09); //background_b
 
                     // don't forget to resize the background image
                     mBackgroundImageNear = Bitmap.createScaledBitmap(mBackgroundImageNear,
