@@ -370,7 +370,7 @@ public class JetBoyView extends SurfaceView implements SurfaceHolder.Callback {
 
             setInitialGameState();
 
-            mTitleBG = BitmapFactory.decodeResource(mRes, R.drawable.open_00); //title_hori
+            mTitleBG = BitmapFactory.decodeResource(mRes, R.drawable.open_00_720); //title_hori
 
             // load background image as a Bitmap instead of a Drawable b/c
             // we don't need to transform it and it's faster to draw this
@@ -489,7 +489,7 @@ public class JetBoyView extends SurfaceView implements SurfaceHolder.Callback {
                 doDrawReady(canvas);
             } else if (mState == STATE_PLAY || mState == STATE_LOSE) {
                 if (mTitleBG2 == null) {
-                    mTitleBG2 = BitmapFactory.decodeResource(mRes, R.drawable.intro_00); //title_bg_hori
+                    mTitleBG2 = BitmapFactory.decodeResource(mRes, R.drawable.intro_00_720); //title_bg_hori
                 }
                 doDrawPlay(canvas);
             }// end state play block
