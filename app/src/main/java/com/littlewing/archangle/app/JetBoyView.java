@@ -383,10 +383,10 @@ public class JetBoyView extends SurfaceView implements SurfaceHolder.Callback {
 
             mBackgroundImageNear = BitmapFactory.decodeResource(mRes, R.drawable.background2_09); // bg_b
 
-            mShipFlying[0] = BitmapFactory.decodeResource(mRes, R.drawable.aa_00); // ship2_1
-            mShipFlying[1] = BitmapFactory.decodeResource(mRes, R.drawable.aa_01);
-            mShipFlying[2] = BitmapFactory.decodeResource(mRes, R.drawable.aa_02);
-            mShipFlying[3] = BitmapFactory.decodeResource(mRes, R.drawable.aa_03);
+            mShipFlying[0] = BitmapFactory.decodeResource(mRes, R.drawable.aa_00_1); // ship2_1
+            mShipFlying[1] = BitmapFactory.decodeResource(mRes, R.drawable.aa_00_2);
+            mShipFlying[2] = BitmapFactory.decodeResource(mRes, R.drawable.aa_00_1);
+            mShipFlying[3] = BitmapFactory.decodeResource(mRes, R.drawable.aa_00_2);
 
             mBeam[0] = BitmapFactory.decodeResource(mRes, R.drawable.effect_10); //intbeam_1
             mBeam[1] = BitmapFactory.decodeResource(mRes, R.drawable.effect_11);
@@ -402,18 +402,18 @@ public class JetBoyView extends SurfaceView implements SurfaceHolder.Callback {
             mAsteroids[9] = BitmapFactory.decodeResource(mRes, R.drawable.boss5_08);
             mAsteroids[8] = BitmapFactory.decodeResource(mRes, R.drawable.boss18); // ast04
             mAsteroids[7] = BitmapFactory.decodeResource(mRes, R.drawable.boss37);
-            mAsteroids[6] = BitmapFactory.decodeResource(mRes, R.drawable.asteroid06);
+            mAsteroids[6] = BitmapFactory.decodeResource(mRes, R.drawable.boss2_08);
             mAsteroids[5] = BitmapFactory.decodeResource(mRes, R.drawable.boss26);
             mAsteroids[4] = BitmapFactory.decodeResource(mRes, R.drawable.boss66); //ast08
-            mAsteroids[3] = BitmapFactory.decodeResource(mRes, R.drawable.asteroid09);
-            mAsteroids[2] = BitmapFactory.decodeResource(mRes, R.drawable.asteroid10);
-            mAsteroids[1] = BitmapFactory.decodeResource(mRes, R.drawable.asteroid11);
-            mAsteroids[0] = BitmapFactory.decodeResource(mRes, R.drawable.asteroid12);
+            mAsteroids[3] = BitmapFactory.decodeResource(mRes, R.drawable.boss6_08);
+            mAsteroids[2] = BitmapFactory.decodeResource(mRes, R.drawable.boss6_08);
+            mAsteroids[1] = BitmapFactory.decodeResource(mRes, R.drawable.boss6_08);
+            mAsteroids[0] = BitmapFactory.decodeResource(mRes, R.drawable.boss6_08);
 
-            mExplosions[0] = BitmapFactory.decodeResource(mRes, R.drawable.asteroid_explode1);
-            mExplosions[1] = BitmapFactory.decodeResource(mRes, R.drawable.asteroid_explode2);
-            mExplosions[2] = BitmapFactory.decodeResource(mRes, R.drawable.asteroid_explode3);
-            mExplosions[3] = BitmapFactory.decodeResource(mRes, R.drawable.asteroid_explode4);
+            mExplosions[0] = BitmapFactory.decodeResource(mRes, R.drawable.effect_07);
+            mExplosions[1] = BitmapFactory.decodeResource(mRes, R.drawable.effect_08);
+            mExplosions[2] = BitmapFactory.decodeResource(mRes, R.drawable.effect_09);
+            mExplosions[3] = BitmapFactory.decodeResource(mRes, R.drawable.effect_09);
 
         }
 
@@ -547,7 +547,7 @@ public class JetBoyView extends SurfaceView implements SurfaceHolder.Callback {
 
             // draw the space ship in the same lane as the next asteroid
 //            canvas.drawBitmap(mShipFlying[mShipIndex], mJetBoyX, mJetBoyY, null);
-            canvas.drawBitmap(mShipFlying[0], mCanvasWidth/2 - 81, mCanvasHeight - 81, null);
+            canvas.drawBitmap(mShipFlying[mShipIndex], mCanvasWidth/2 - 81, mCanvasHeight - 181, null);
 
             if (mLaserOn) {
                 canvas.drawBitmap(mLaserShot, mJetBoyX + mShipFlying[0].getWidth(), mJetBoyY
@@ -869,6 +869,7 @@ public class JetBoyView extends SurfaceView implements SurfaceHolder.Callback {
 
                 // Update the asteroids position, even missed ones keep moving
                 asteroid.mDrawX -= mPixelMoveX;
+                asteroid.mDrawY += mPixelMoveX; // dungnv add. asteroid move down
 
                 // Update asteroid animation frame
                 asteroid.mAniIndex = (asteroid.mAniIndex + ANIMATION_FRAMES_PER_BEAT)
