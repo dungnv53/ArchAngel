@@ -462,7 +462,7 @@ public class JetBoyView extends SurfaceView implements SurfaceHolder.Callback {
 
             // JET info: this is the main game play music
             // JET info: it is located at segment 0
-            // JET info: it uses the first DLS lib in the .jet resource, which is at index 0
+            // JET info: it uses the first DLS lib in the .jet resourfindce, which is at index 0
             // JET info: index -1 means no DLS
             mJet.queueJetSegment(0, 0, 0, 0, 0, sSegmentID);
 
