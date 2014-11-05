@@ -501,6 +501,7 @@ public class b extends Canvas
   /**
    * 
    * @param paramInt
+   * Voai ca keyPressed gan 500 loc, nhu ben SBF vai ca phuc tap if/else
    */
   public void keyPressed(int paramInt)
   {

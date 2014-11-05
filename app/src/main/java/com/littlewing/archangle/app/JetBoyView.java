@@ -377,7 +377,7 @@ public class JetBoyView extends SurfaceView implements SurfaceHolder.Callback {
             // way...thanks lunar lander :)
 
             // two background since we want them moving at different speeds
-            mBackgroundImageFar = BitmapFactory.decodeResource(mRes, R.drawable.background2_10); // bg_a
+            mBackgroundImageFar = BitmapFactory.decodeResource(mRes, R.drawable.background_far); // bg_a
 
             mLaserShot = BitmapFactory.decodeResource(mRes, R.drawable.laser);
 
@@ -1097,14 +1097,14 @@ public class JetBoyView extends SurfaceView implements SurfaceHolder.Callback {
                 if (mState == STATE_PLAY) {
                     Resources res = mContext.getResources();
                     mBackgroundImageFar = BitmapFactory
-                            .decodeResource(res, R.drawable.background2_10); //background_a
+                            .decodeResource(res, R.drawable.background_far); //background_a
 
                     // don't forget to resize the background image
                     mBackgroundImageFar = Bitmap.createScaledBitmap(mBackgroundImageFar,
                             mCanvasWidth * 2, mCanvasHeight, true);
 
                     mBackgroundImageNear = BitmapFactory.decodeResource(res,
-                            R.drawable.background2_09); //background_b
+                            R.drawable.background_near); //background_b
 
                     // don't forget to resize the background image
                     mBackgroundImageNear = Bitmap.createScaledBitmap(mBackgroundImageNear,
