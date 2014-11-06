@@ -19,7 +19,7 @@
 
 package com.littlewing.archangle.app;
 
-import com.littlewing.archangle.app.JetBoyView.JetBoyThread;
+import com.littlewing.archangle.app.JetBoyThread;
 
 import android.app.Activity;
 import android.os.Bundle;
