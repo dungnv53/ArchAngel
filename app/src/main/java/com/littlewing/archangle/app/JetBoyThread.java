@@ -91,6 +91,9 @@ class JetBoyThread extends Thread implements JetPlayer.OnJetEventListener {
     /** The drawable to use as the close background of the animation canvas */
     private Bitmap mBackgroundImageNear;
 
+    /** The 2nd drawable to use as the close background of the animation canvas */
+    private Bitmap mBackgroundImageTwo;
+
     // JET info: event IDs within the JET file.
     // JET info: in this game 80 is used for sending asteroid across the screen
     // JET info: 82 is used as game time for 1/4 note beat.
@@ -178,6 +181,10 @@ class JetBoyThread extends Thread implements JetPlayer.OnJetEventListener {
     // right to left scroll tracker for near and far BG
     private int mBGFarMoveX = 0;
     private int mBGNearMoveX = 0;
+    private int mBGTwoMoveX = 0;
+    private int mBGThreeMoveX = 0;
+    private int mBGFourMoveX = 0;
+    private int mBGFiveMoveX = 0;
 
     // screen width, height
     private int mWidth = 720; //(int)getWidth();
@@ -233,11 +240,12 @@ class JetBoyThread extends Thread implements JetPlayer.OnJetEventListener {
         // way...thanks lunar lander :)
 
         // two background since we want them moving at different speeds
-        mBackgroundImageFar = BitmapFactory.decodeResource(mRes, R.drawable.background_far); // bg_a
+        mBackgroundImageFar = BitmapFactory.decodeResource(mRes, R.drawable.background0_00); // bg_a
 
         mLaserShot = BitmapFactory.decodeResource(mRes, R.drawable.laser);
 
         mBackgroundImageNear = BitmapFactory.decodeResource(mRes, R.drawable.background2_09); // bg_b
+        mBackgroundImageTwo = BitmapFactory.decodeResource(mRes, R.drawable.background2_07); // bg_b
 
         mShipFlying[0] = BitmapFactory.decodeResource(mRes, R.drawable.aa_00_1); // ship2_1
         mShipFlying[1] = BitmapFactory.decodeResource(mRes, R.drawable.aa_00_2);
@@ -361,7 +369,10 @@ class JetBoyThread extends Thread implements JetPlayer.OnJetEventListener {
         mBGFarMoveX = mBGFarMoveX - 1;
 
         // decrement the near background
-        mBGNearMoveX = mBGNearMoveX - 4;
+        mBGNearMoveX = mBGNearMoveX - 6; // def 4, increase speed near
+
+        // Add new bg 2 simulate more real bg run
+        mBGTwoMoveX = mBGTwoMoveX - 5; // def 4, increase speed near
 
         // calculate the wrap factor for matching image draw
         int newFarX = mBackgroundImageFar.getWidth() - (-mBGFarMoveX);
@@ -389,6 +400,19 @@ class JetBoyThread extends Thread implements JetPlayer.OnJetEventListener {
         } else {
             canvas.drawBitmap(mBackgroundImageNear, mBGNearMoveX, 0, null);
             canvas.drawBitmap(mBackgroundImageNear, newNearX, 0, null);
+        }
+
+        // same story different image...
+        // TODO chuyen qua ham
+        int newTwoX = mBackgroundImageTwo.getWidth() - (-mBGTwoMoveX);
+
+        if (newTwoX <= 0) {
+            mBGTwoMoveX = 0;
+            canvas.drawBitmap(mBackgroundImageTwo, mBGTwoMoveX, 720, null);
+
+        } else {
+            canvas.drawBitmap(mBackgroundImageTwo, mBGTwoMoveX, 720, null);
+            canvas.drawBitmap(mBackgroundImageTwo, newNearX, 720, null);
         }
 
         doAsteroidAnimation(canvas);
@@ -953,7 +977,7 @@ class JetBoyThread extends Thread implements JetPlayer.OnJetEventListener {
             if (mState == STATE_PLAY) {
                 Resources res = mContext.getResources();
                 mBackgroundImageFar = BitmapFactory
-                        .decodeResource(res, R.drawable.background_far); //background_a
+                        .decodeResource(res, R.drawable.background0_00); //background_a
 
                 // don't forget to resize the background image
                 mBackgroundImageFar = Bitmap.createScaledBitmap(mBackgroundImageFar,
