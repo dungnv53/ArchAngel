@@ -197,6 +197,24 @@ public class Craft {
                 this.e_boss_move_dir = 1;
         }
     }
+
+    // Move craft follow bernoulli curve.
+    // TODO need fps, inp, screen width
+    public void bernoulliMove(double angle) {
+        angle = angle%360;
+        this.dn_x = 360+getBernoulliMark(angle).getX();
+        this.dn_y = 240+getBernoulliMark(angle).getY();
+    }
+
+    // TODO rm magic numb
+    public Point getBernoulliMark(double angle) {
+        int a = 340; //680/2; // (960/sqrt(2))
+        double x = a*Math.sqrt(2)*Math.cos(angle)/(Math.sin(angle)*Math.sin(angle) + 1);
+        double y = a*Math.sqrt(2)*Math.cos(angle)*Math.sin(angle)/(Math.sin(angle)*Math.sin(angle) + 1);
+        Point result = new Point((int)x, (int)y);
+        return result;
+    }
+
     public Craft(int paramInt1, int paramInt2, Bitmap[] bitmap) {
         this.dn_x = paramInt1;
         this.dn_y = paramInt2;

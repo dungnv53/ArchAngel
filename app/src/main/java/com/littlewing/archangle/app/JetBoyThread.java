@@ -210,6 +210,9 @@ class JetBoyThread extends Thread implements JetPlayer.OnJetEventListener {
 
     public static final String TAG = "JetBoy";
 
+    private Craft angel; // Angel instance
+    private double angle = 0;  // angle of bernoulli curve
+
     /**
      * This is the constructor for the main worker bee
      *
@@ -278,6 +281,8 @@ class JetBoyThread extends Thread implements JetPlayer.OnJetEventListener {
         mExplosions[1] = BitmapFactory.decodeResource(mRes, R.drawable.effect_08);
         mExplosions[2] = BitmapFactory.decodeResource(mRes, R.drawable.effect_09);
         mExplosions[3] = BitmapFactory.decodeResource(mRes, R.drawable.effect_09);
+
+        angel = new Craft(480, 640, mAsteroids);
 
     }
 
@@ -437,6 +442,11 @@ class JetBoyThread extends Thread implements JetPlayer.OnJetEventListener {
         // tick tock
         canvas.drawBitmap(mTimerShell, mCanvasWidth - mTimerShell.getWidth(), 0, null);
 
+//        this.angle += 1;
+//        this.angel.bernoulliMove(angle);
+//
+//        canvas.drawBitmap(angel.getBossImage(), angel.getDonaldX(), angel.getDonaldY(), null);
+
     }
 
     private void setInitialGameState() {
@@ -491,6 +501,12 @@ class JetBoyThread extends Thread implements JetPlayer.OnJetEventListener {
             canvas.drawBitmap(mExplosions[(ex.mAniIndex + animOffset) % mExplosions.length],
                     ex.mDrawX, ex.mDrawY, null);
         }
+
+        this.angle += 0.1;
+        this.angel.bernoulliMove(angle);
+
+        canvas.drawBitmap(angel.getBossImage(), angel.getDonaldX(), angel.getDonaldY(), null);
+
     }
 
     private void doDrawReady(Canvas canvas) {
