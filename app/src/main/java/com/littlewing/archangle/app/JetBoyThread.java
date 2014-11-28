@@ -54,6 +54,11 @@ class JetBoyThread extends Thread implements JetPlayer.OnJetEventListener {
     public static final int STATE_PAUSE = 2;
     public static final int STATE_RUNNING = 3;
 
+    public static final int LEFT = 0;
+    public static final int RIGHT = 1;
+    public static final int UP = 2;
+    public static final int DOWN = 3;
+
     // how many frames per beat? The basic animation can be changed for
     // instance to 3/4 by changing this to 3.
     // untested is the impact on other parts of game logic for non 4/4 time.
@@ -427,7 +432,8 @@ class JetBoyThread extends Thread implements JetPlayer.OnJetEventListener {
 
         // draw the space ship in the same lane as the next asteroid
 //            canvas.drawBitmap(mShipFlying[mShipIndex], mJetBoyX, mJetBoyY, null);
-        canvas.drawBitmap(mShipFlying[mShipIndex], mCanvasWidth/2 - 81, mCanvasHeight - 181, null);
+//        canvas.drawBitmap(mShipFlying[mShipIndex], mCanvasWidth/2 - 81, mCanvasHeight - 181, null);
+        canvas.drawBitmap(mShipFlying[mShipIndex], mJetBoyX, mCanvasHeight - 181, null);
 
         if (mLaserOn) {
             canvas.drawBitmap(mLaserShot, mJetBoyX + mShipFlying[0].getWidth(), mJetBoyY
@@ -949,7 +955,7 @@ class JetBoyThread extends Thread implements JetPlayer.OnJetEventListener {
      * Sets the game mode. That is, whether we are running, paused, in the
      * failure state, in the victory state, etc.
      *
-     * @see #setState(int, CharSequence)
+     * @see # setState (int, CharSequence)
      * @param mode one of the STATE_* constants
      */
     public void setGameState(int mode) {
@@ -1022,6 +1028,107 @@ class JetBoyThread extends Thread implements JetPlayer.OnJetEventListener {
         return true;
     }
 
+    public boolean onTouch(MotionEvent event) {
+        int x = (int)event.getX();
+        int y = (int)event.getY();
+        Log.d("x = ", x+" \n -*-");
+        Log.d("y = ", y+ "\n -*-");
+
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_MOVE:
+                if (inRange(x, 220, 120) && inRange(y, 860, 260)) { // tap on left side TODO hardcode
+                    heroMove(12, LEFT);
+                } else if (inRange(x, 0, 120) && inRange(y, 860, 260)) { // tap on right side 170-50 for center
+                    heroMove(12, RIGHT);
+                }
+                // Move up n down
+                if(inRange(x, 120, 100) && inRange(y, 840, 100)) {
+                    heroMove(12, UP);
+                }
+                if(inRange(x, 120, 100) && inRange(y, 1020, 100)) {
+                    heroMove(12, DOWN);
+                }
+                break;
+            case MotionEvent.ACTION_DOWN:
+                break;
+            case MotionEvent.ACTION_UP:
+                break;
+            case MotionEvent.ACTION_POINTER_DOWN:
+                break;
+            case MotionEvent.ACTION_POINTER_UP:
+                break;
+        }
+        return true;
+    }
+
+    // Tap on movePad to move hero left, right, up n down
+    public void tapMove(int tapX, int tapY, int topX, int topY, int width, int height, int direction) {
+        // TODO cho topx,y width height thanh class Rectangle va Point
+        if(inRange(tapX, topX, width) && inRange(tapY, topY, height)) {
+            heroMove(12, direction);
+        }
+    }
+
+    // Check if number x in a range
+    public boolean inRange(int xCheck, int x, int range) {
+        if((xCheck < x+range) && (xCheck > x)) {
+            return true;
+        }
+        return false;
+    }
+
+    public void heroMove(int delta, int direction) {
+        switch(direction) {
+            // TODO set boundary by screen W-H ratio
+            case LEFT:                // move left
+                if(inRange(mJetBoyX, 150, 410)) {
+                    mJetBoyX += delta;
+                } else {
+                    mJetBoyX=300;
+                }
+                heroMotion();
+                break;
+            case RIGHT:               // move right
+                if(inRange(mJetBoyX, 150, 410)) {
+                    mJetBoyX -= delta;
+                } else {
+                    mJetBoyX = 300;
+                }
+                heroMotion();
+                break;
+            case UP:               // move up
+                if(inRange(mJetBoyX, 360, 235)) {
+                    mJetBoyX -= delta;
+                } else {
+                    mJetBoyX  = 470;
+                }
+                heroMotion();
+                break;
+            case DOWN:               // move down
+                if(inRange(mJetBoyY, 360, 235)) {
+                    mJetBoyY += delta;
+                } else {
+                    mJetBoyY = 480;
+                }
+                heroMotion();
+                break;
+
+        }
+    }
+
+    // Use sprite image to animate hero move
+    public void heroMotion() {
+        if (mShipIndex < 2) {
+            mShipIndex++;
+            if (mShipIndex == 2) mShipIndex = 0;
+            else if (mShipIndex == 0) mShipIndex = 1;
+        } else {
+            mShipIndex = 1;
+            mShipIndex++;
+            if (mShipIndex == 2) mShipIndex = 0;
+            else if (mShipIndex == 0) mShipIndex = 1;
+        }
+    }
 
     /* Callback invoked when the surface dimensions change. */
     public void setSurfaceSize(int width, int height) {
@@ -1056,25 +1163,6 @@ class JetBoyThread extends Thread implements JetPlayer.OnJetEventListener {
                 mJet.pause();
             }
         }
-    }
-
-    public boolean onTouch(MotionEvent event) {
-        int x = (int)event.getX();
-        int y = (int)event.getY();
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_MOVE:
-                mLaserOn = true;
-                break;
-            case MotionEvent.ACTION_DOWN:
-                break;
-            case MotionEvent.ACTION_UP:
-                break;
-            case MotionEvent.ACTION_POINTER_DOWN:
-                break;
-            case MotionEvent.ACTION_POINTER_UP:
-                break;
-        }
-        return true;
     }
 
     /**
