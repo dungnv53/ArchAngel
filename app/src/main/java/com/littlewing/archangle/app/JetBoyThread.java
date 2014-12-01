@@ -265,7 +265,7 @@ class JetBoyThread extends Thread implements JetPlayer.OnJetEventListener {
         mBeam[2] = BitmapFactory.decodeResource(mRes, R.drawable.effect_12);
         mBeam[3] = BitmapFactory.decodeResource(mRes, R.drawable.effect_12);
 
-        mTimerShell = BitmapFactory.decodeResource(mRes, R.drawable.int_timer);
+        mTimerShell = BitmapFactory.decodeResource(mRes, R.drawable.ui_00);
 
         // I wanted them to rotate in a certain way
         // so I loaded them backwards from the way created.
@@ -446,7 +446,7 @@ class JetBoyThread extends Thread implements JetPlayer.OnJetEventListener {
         }
 
         // tick tock
-        canvas.drawBitmap(mTimerShell, mCanvasWidth - mTimerShell.getWidth(), 0, null);
+        canvas.drawBitmap(mTimerShell, 0, 0, null); // mCanvasWidth - mTimerShell.getWidth()
 
 //        this.angle += 1;
 //        this.angel.bernoulliMove(angle);
