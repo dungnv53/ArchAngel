@@ -59,6 +59,11 @@ class JetBoyThread extends Thread implements JetPlayer.OnJetEventListener {
     public static final int UP = 2;
     public static final int DOWN = 3;
 
+    public static final int DIR_LEFT = 1;
+    public static final int DIR_RIGHT = -1;
+    public static final int DIR_UP = 1;
+    public static final int DIR_DOWN = -1;
+
     // how many frames per beat? The basic animation can be changed for
     // instance to 3/4 by changing this to 3.
     // untested is the impact on other parts of game logic for non 4/4 time.
@@ -86,7 +91,7 @@ class JetBoyThread extends Thread implements JetPlayer.OnJetEventListener {
 
     // has laser been fired and for how long?
     // user for fx logic on laser fire
-    boolean mLaserOn = false;
+    boolean mLaserOn = true;
 
     long mLaserFireTime = 0;
 
@@ -217,6 +222,16 @@ class JetBoyThread extends Thread implements JetPlayer.OnJetEventListener {
 
     private Craft angel; // Angel instance
     private double angle = 0;  // angle of bernoulli curve
+
+
+    // Direction moving
+    private int MOVE_DIR = 0; // moving dir
+
+    // Speed of BG move
+    private int FarBGSpeed = 0;
+    private int NearBGSpeed = 0;
+    private int mBGTwoSpeed = 0;
+    private int mBGThreeSpeed = 0;
 
     /**
      * This is the constructor for the main worker bee
@@ -376,16 +391,16 @@ class JetBoyThread extends Thread implements JetPlayer.OnJetEventListener {
     private void doDrawRunning(Canvas canvas) {
 
         // decrement the far background
-        mBGFarMoveX = mBGFarMoveX - 1;
+        mBGFarMoveX = mBGFarMoveX - (FarBGSpeed+1)*MOVE_DIR;
 
         // decrement the near background
-        mBGNearMoveX = mBGNearMoveX - 6; // def 4, increase speed near
+        mBGNearMoveX = mBGNearMoveX - (NearBGSpeed+6)*MOVE_DIR; // def 4, increase speed near
 
         // Add new bg 2 simulate more real bg run
-        mBGTwoMoveX = mBGTwoMoveX - 5; // def 4, increase speed near
+        mBGTwoMoveX = mBGTwoMoveX - 5*MOVE_DIR; // def 4, increase speed near
 
         // calculate the wrap factor for matching image draw
-        int newFarX = mBackgroundImageFar.getWidth() - (-mBGFarMoveX);
+        int newFarX = mBackgroundImageFar.getWidth() - (-mBGFarMoveX*MOVE_DIR);
 
         // if we have scrolled all the way, reset to start
         if (newFarX <= 0) {
@@ -401,7 +416,7 @@ class JetBoyThread extends Thread implements JetPlayer.OnJetEventListener {
 
         // same story different image...
         // TODO possible method call
-        int newNearX = mBackgroundImageNear.getWidth() - (-mBGNearMoveX);
+        int newNearX = mBackgroundImageNear.getWidth() - (-mBGNearMoveX*MOVE_DIR);
 
         if (newNearX <= 0) {
             mBGNearMoveX = 0;
@@ -414,11 +429,12 @@ class JetBoyThread extends Thread implements JetPlayer.OnJetEventListener {
 
         // same story different image...
         // TODO chuyen qua ham
-        int newTwoX = mBackgroundImageTwo.getWidth() - (-mBGTwoMoveX);
+        // BG thu 2th
+        int newTwoX = mBackgroundImageTwo.getWidth() - (-mBGTwoMoveX*MOVE_DIR);       // Move right --> left, now want 2 dir move.
 
         if (newTwoX <= 0) {
             mBGTwoMoveX = 0;
-            canvas.drawBitmap(mBackgroundImageTwo, mBGTwoMoveX, 720, null);
+            canvas.drawBitmap(mBackgroundImageTwo, mBGTwoMoveX, 720, null);  // 720 la hard fix
 
         } else {
             canvas.drawBitmap(mBackgroundImageTwo, mBGTwoMoveX, 720, null);
@@ -441,8 +457,8 @@ class JetBoyThread extends Thread implements JetPlayer.OnJetEventListener {
         canvas.drawBitmap(mShipFlying[mShipIndex], mJetBoyX, mCanvasHeight - 181, null);
 
         if (mLaserOn) {
-            canvas.drawBitmap(mLaserShot, mJetBoyX + mShipFlying[0].getWidth(), mJetBoyY
-                    + (mShipFlying[0].getHeight() / 2), null);
+            canvas.drawBitmap(mLaserShot, mJetBoyX, mJetBoyY + 32, null);
+            Log.d(TAG, " drawing shot " + mJetBoyX + " at " + mJetBoyY);
         }
 
         // tick tock
@@ -1053,15 +1069,19 @@ class JetBoyThread extends Thread implements JetPlayer.OnJetEventListener {
         switch (event.getAction()) {
             case MotionEvent.ACTION_MOVE:
                 if (inRange(x, 220, 120) && inRange(y, 860, 260)) { // tap on left side TODO hardcode
+                    MOVE_DIR = DIR_LEFT; // move to left, set DIR
                     heroMove(12, LEFT);
                 } else if (inRange(x, 0, 120) && inRange(y, 860, 260)) { // tap on right side 170-50 for center
+                    MOVE_DIR = DIR_RIGHT; // move to right, set DIR
                     heroMove(12, RIGHT);
                 }
                 // Move up n down
                 if(inRange(x, 120, 100) && inRange(y, 840, 100)) {
+                    speedUp();
                     heroMove(12, UP);
                 }
                 if(inRange(x, 120, 100) && inRange(y, 1020, 100)) {
+                    speedDown();
                     heroMove(12, DOWN);
                 }
                 break;
@@ -1296,6 +1316,26 @@ class JetBoyThread extends Thread implements JetPlayer.OnJetEventListener {
     public void onJetUserIdUpdate(JetPlayer player, int userId, int repeatCount) {
         //Log.i(TAG, "onJetUserIdUpdate(): userId =" + userId + " repeatCount=" + repeatCount);
 
+    }
+
+
+    // Tang / giam toc do game
+    public void speedUp() {
+        if(inRange(FarBGSpeed, 0, 8)) { // Gioi han tang toc do.
+            FarBGSpeed += 2;
+        }
+        if(inRange(NearBGSpeed, 1, 9)) { // Gioi han tang toc do.
+            NearBGSpeed += 2;
+        }
+    }
+    // Tang / giam toc do game
+    public void speedDown() {
+        if(inRange(FarBGSpeed, 2, 8)) { // Gioi han tang toc do.
+            FarBGSpeed -= 2;
+        }
+        if(inRange(NearBGSpeed, 3, 9)) { // Gioi han tang toc do.
+            NearBGSpeed -= 2;
+        }
     }
 
 }//end thread class
