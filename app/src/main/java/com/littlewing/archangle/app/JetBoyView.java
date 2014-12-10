@@ -93,7 +93,7 @@ public class JetBoyView extends SurfaceView implements SurfaceHolder.Callback {
         
         // create thread only; it's started in surfaceCreated()
         // except if used in the layout editor.
-        if (isInEditMode() == false) {
+        if (!isInEditMode()) {
             thread = new JetBoyThread(holder, context, new Handler() {
     
                 public void handleMessage(Message m) {

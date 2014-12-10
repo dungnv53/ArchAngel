@@ -4,9 +4,7 @@ android {
     compileSdkVersion 19
     buildToolsVersion '19.1.0'
     defaultConfig {
-        apply plugin: 'application'
-        apply plugin: 'application'
-        apply plugin: 'application'
+//        apply plugin: 'application'
         applicationId 'com.littlewing.archangle.app'
         minSdkVersion 15
         targetSdkVersion 19
@@ -15,8 +13,6 @@ android {
     }
     buildTypes {
         release {
-            apply plugin: 'java'
-            apply plugin: 'java'
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
